@@ -1,18 +1,29 @@
 {
   "name": "needs-pkg-install",
+  "description": "You can know if you shold npm install.",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "author": "FujiHaruka",
+  "bugs": {
+    "url": "https://github.com/FujiHaruka/needs-pkg-install/issues"
+  },
+  "dependencies": {
+    "object-path": "^0.11.4"
+  },
+  "devDependencies": {},
   "directories": {
     "lib": "lib"
   },
+  "homepage": "https://github.com/FujiHaruka/needs-pkg-install#readme",
+  "keywords": [
+    "npm"
+  ],
+  "license": "MIT",
+  "main": "lib",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/FujiHaruka/needs-pkg-install.git"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "object-path": "^0.11.4"
   }
 }
