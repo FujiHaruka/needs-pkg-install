@@ -7,6 +7,12 @@ describe('Dependency', () => {
     const d2 = new Dependency({name: 'two', parent: d1})
     const d3 = new Dependency({name: 'three', parent: d2})
 
+    equal(d1.pkgJsonFilePath, 'node_modules/one/package.json')
+    deepEqual(d1.pkgLockPath, [
+      'dependencies',
+      'one',
+    ])
+
     equal(d3.pkgJsonFilePath, 'node_modules/one/node_modules/two/node_modules/three/package.json')
     deepEqual(d3.pkgLockPath, [
       'dependencies',
@@ -14,7 +20,7 @@ describe('Dependency', () => {
       'dependencies',
       'two',
       'dependencies',
-      'three'
+      'three',
     ])
   })
 })
