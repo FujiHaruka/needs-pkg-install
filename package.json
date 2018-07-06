@@ -24,6 +24,6 @@
     "url": "git+https://github.com/FujiHaruka/needs-pkg-install.git"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "(cd misc/test-pkg ; npm i) && mocha"
   }
 }
