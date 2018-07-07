@@ -1,0 +1,15 @@
+{
+  "name": "test-pkg3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "prepare": "[ ! -e $PWD/node_modules/ignored ] && ln -s $PWD/ignored/ $PWD/node_modules/ignored || true"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "color": "^3.0.0"
+  }
+}

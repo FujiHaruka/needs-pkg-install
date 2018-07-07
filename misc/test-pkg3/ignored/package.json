@@ -1,5 +1,5 @@
 {
-  "name": "test-pkg",
+  "name": "ignored",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "@babel/core": "^7.0.0-beta.52",
-    "express": "^4.16.3"
-  }
+  "license": "ISC"
 }

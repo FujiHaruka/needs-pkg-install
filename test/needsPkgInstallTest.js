@@ -3,13 +3,37 @@ const needsPkgInstall = require('../lib')
 const {join} = require('path')
 
 describe('needsPkgInstall', () => {
-  it('Works', async () => {
-    const projectDir = join(__dirname, '../misc/test-pkg')
-    const not = await needsPkgInstall(projectDir)
-    ok(!not)
+  it('test-pkg1', async () => {
+    const project = 'test-pkg1'
+    const projectDir = join(__dirname, '../misc', project)
+    const no = await needsPkgInstall(projectDir)
+    ok(!no)
 
-    const stillNot = await needsPkgInstall(projectDir, { strict: true })
-    ok(!stillNot)
+    const stillNo = await needsPkgInstall(projectDir, { strict: true })
+    ok(!stillNo)
+  })
+
+  it('test-pkg2', async () => {
+    const project = 'test-pkg2'
+    const projectDir = join(__dirname, '../misc', project)
+    const no = await needsPkgInstall(projectDir)
+    ok(!no)
+
+    const stillNo = await needsPkgInstall(projectDir, { strict: true })
+    ok(!stillNo)
+  })
+
+  it('test-pkg3', async () => {
+    const project = 'test-pkg3'
+    const projectDir = join(__dirname, '../misc', project)
+    const no = await needsPkgInstall(projectDir)
+    ok(!no)
+
+    const butYes = await needsPkgInstall(projectDir, { strict: true })
+    ok(butYes)
+
+    const thenNo = await needsPkgInstall(projectDir, { strict: true, ignore: ['ignored'] })
+    ok(!thenNo)
   })
 })
 

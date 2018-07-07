@@ -24,6 +24,8 @@
     "url": "git+https://github.com/FujiHaruka/needs-pkg-install.git"
   },
   "scripts": {
-    "test": "(cd misc/test-pkg ; npm i) && mocha"
+    "install:test-pkg": "(cd misc/test-pkg1 ; npm i) && (cd misc/test-pkg2 ; npm i) && (cd misc/test-pkg3 ; npm i)",
+    "prepare": "npm run install:test-pkg",
+    "test": "mocha"
   }
 }
