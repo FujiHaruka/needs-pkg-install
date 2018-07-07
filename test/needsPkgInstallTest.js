@@ -11,6 +11,9 @@ describe('needsPkgInstall', () => {
 
     const stillNo = await needsPkgInstall(projectDir, { strict: true })
     ok(!stillNo)
+
+    const {needs} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
+    ok(!needs)
   })
 
   it('test-pkg2', async () => {
@@ -21,6 +24,9 @@ describe('needsPkgInstall', () => {
 
     const stillNo = await needsPkgInstall(projectDir, { strict: true })
     ok(!stillNo)
+
+    const {needs} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
+    ok(!needs)
   })
 
   it('test-pkg3', async () => {
@@ -34,6 +40,21 @@ describe('needsPkgInstall', () => {
 
     const thenNo = await needsPkgInstall(projectDir, { strict: true, ignore: ['ignored'] })
     ok(!thenNo)
+
+    const {needs, detail} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
+    ok(needs)
+    ok(detail.ignored)
+  })
+
+  it('test-pkg4', async () => {
+    const project = 'test-pkg4'
+    const projectDir = join(__dirname, '../misc', project)
+    const yes = await needsPkgInstall(projectDir)
+    ok(yes)
+
+    const {needs, detail} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
+    ok(needs)
+    ok(detail.color)
   })
 })
 
