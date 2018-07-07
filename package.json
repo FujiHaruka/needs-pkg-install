@@ -1,7 +1,7 @@
 {
   "name": "needs-pkg-install",
   "description": "You can know if you shold npm install.",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "author": "FujiHaruka",
   "bugs": {
     "url": "https://github.com/FujiHaruka/needs-pkg-install/issues"
