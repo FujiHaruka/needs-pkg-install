@@ -43,7 +43,7 @@ describe('needsPkgInstall', () => {
 
     const {needs, detail} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
     ok(needs)
-    ok(detail.ignored)
+    ok(detail['dependencies.ignored'])
   })
 
   it('test-pkg4', async () => {
@@ -54,7 +54,7 @@ describe('needsPkgInstall', () => {
 
     const {needs, detail} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
     ok(needs)
-    ok(detail.color)
+    ok(detail['node_modules/color'])
   })
 })
 
