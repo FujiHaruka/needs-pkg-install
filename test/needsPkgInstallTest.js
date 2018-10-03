@@ -9,10 +9,7 @@ describe('needsPkgInstall', () => {
     const no = await needsPkgInstall(projectDir)
     ok(!no)
 
-    const stillNo = await needsPkgInstall(projectDir, { strict: true })
-    ok(!stillNo)
-
-    const {needs} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
+    const {needs} = await needsPkgInstall(projectDir, { verbose: true })
     ok(!needs)
   })
 
@@ -22,10 +19,7 @@ describe('needsPkgInstall', () => {
     const no = await needsPkgInstall(projectDir)
     ok(!no)
 
-    const stillNo = await needsPkgInstall(projectDir, { strict: true })
-    ok(!stillNo)
-
-    const {needs} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
+    const {needs} = await needsPkgInstall(projectDir, { verbose: true })
     ok(!needs)
   })
 
@@ -34,16 +28,6 @@ describe('needsPkgInstall', () => {
     const projectDir = join(__dirname, '../misc', project)
     const no = await needsPkgInstall(projectDir)
     ok(!no)
-
-    const butYes = await needsPkgInstall(projectDir, { strict: true })
-    ok(butYes)
-
-    const thenNo = await needsPkgInstall(projectDir, { strict: true, ignore: ['ignored'] })
-    ok(!thenNo)
-
-    const {needs, detail} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
-    ok(needs)
-    ok(detail['dependencies.ignored'])
   })
 
   it('test-pkg4', async () => {
@@ -52,7 +36,7 @@ describe('needsPkgInstall', () => {
     const yes = await needsPkgInstall(projectDir)
     ok(yes)
 
-    const {needs, detail} = await needsPkgInstall(projectDir, { verbose: true, strict: true })
+    const {needs, detail} = await needsPkgInstall(projectDir, { verbose: true })
     ok(needs)
     ok(detail['node_modules/color'])
   })
